@@ -3,7 +3,7 @@
 ![](https://pic.imgdb.cn/item/66824f87d9c307b7e974ec20.png)
 
 ### Introduction
-This paper presents **FUROLA**, an efficient guidance-exploration framework built on 
+This paper presents **FULORA**, an efficient guidance-exploration framework built on 
 dual-agent KG reasoning methods to enhance the agent's long-distance reasoning 
 ability on standard KG and sparse KG. The key insight behind our approach is balancing 
 the self-exploration of DWARF with guidance from GIANT. Specifically, on the one hand, 
