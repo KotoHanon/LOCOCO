@@ -1,6 +1,6 @@
 ## Walk Wisely on Graph: Knowledge Graph Reasoning  with Dual Agents via Efficient Guidance-Exploration
 
-![](https://pic.imgdb.cn/item/66824f87d9c307b7e974ec20.png)
+![](https://pic.superbed.cc/item/66bed631fcada11d3758f03d.png)
 
 ### Introduction
 This paper presents **FULORA**, an efficient guidance-exploration framework built on 
