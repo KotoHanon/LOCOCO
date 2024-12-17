@@ -73,16 +73,4 @@ if you still do not want to use weights and biases, you can use the
 `--disable-wandb flag`. Then your results will be stored to a CSV file 
 in `policies/<project_name>/<env>/<config>.csv`. The metrics used for evaluation 
 are Hits@{1,3,5,10}, MRR, MAP, CSS and ESS. Along with this, the code also 
-outputs the answers LOCOCO reached in a file.
-
-### Baselines
-1. **TransE** (Bordes et al. 2013) https://proceedings.neurips.cc/paper_files/paper/2013/hash/1cecc7a77928ca8133fa24680a88d2f9-Abstract.html
-2. **DistMult** (Yang et al. 2015) https://arxiv.org/pdf/1412.6575v3
-3. **ComplEx** (Trouillon et al. 2016) https://arxiv.org/pdf/1606.06357
-4. **DeepPath** (Xiong, Hoang, and Wang 2017) https://arxiv.org/pdf/1707.06690v2
-5. **MINERVA** (Das et al. 2018) https://arxiv.org/pdf/1711.05851
-6. **M-Walk** (Shen et al. 2018) https://arxiv.org/pdf/1802.04394
-7. **AttnPath** (Wang et al. 2019) https://aclanthology.org/D19-1264.pdf
-8. **SQUIRE** (Bai et al. 2022) https://arxiv.org/pdf/2201.06206
-9. **LMKE** (Wang et al. 2022) https://arxiv.org/pdf/2206.12617
-10. **CURL** (Zhang et al. 2022) https://arxiv.org/pdf/2112.12876
+outputs the answers FULORA reached in a file.
