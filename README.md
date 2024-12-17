@@ -77,3 +77,6 @@ if you still do not want to use weights and biases, you can use the
 in `policies/<project_name>/<env>/<config>.csv`. The metrics used for evaluation 
 are Hits@{1,3,5,10}, MRR, MAP, CSS and ESS. Along with this, the code also 
 outputs the answers FULORA reached in a file.
+
+### Acknowledgements
+Thanks to the KG reasoning codes proposed in other papers, already cited in our forthcoming paper. We refer the agent training code of [DKGR](https://github.com/RutgersDM/DKGR)
