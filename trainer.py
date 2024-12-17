@@ -73,7 +73,7 @@ class Trainer(object):
 
 		self.optimizer = optim.Adam(list(self.e_agent.parameters()) + list(self.c_agent.parameters()),
 									lr=self.learning_rate)
-		self.two_embeds_sim_criterion = torch.nn.KLDivLoss() # KL散度损失
+		self.two_embeds_sim_criterion = torch.nn.KLDivLoss()
 
 		root_dir = './'
 		dir = root_dir + 'datasets/data_preprocessed/FB15K-237/'
@@ -86,20 +86,20 @@ class Trainer(object):
 
 	def calc_reinforce_loss(self, all_loss, all_logits, cum_discounted_reward, decaying_beta, baseline):
 
-		loss = torch.stack(all_loss, dim=1)  # [original batch_size * num_rollout, T] # T个时间步
-		base_value = baseline.get_baseline_value() # 这个value感觉是state value
+		loss = torch.stack(all_loss, dim=1)  # [original batch_size * num_rollout, T]
+		base_value = baseline.get_baseline_value()
 
 		# multiply with rewards
-		final_reward = cum_discounted_reward - base_value # 所以这玩意儿相当于优势函数？
+		final_reward = cum_discounted_reward - base_value
 		reward_mean = torch.mean(final_reward)
 
 		# Constant added for numerical stability
 		reward_std = torch.std(final_reward) + 1e-6
-		final_reward = torch.div(final_reward - reward_mean, reward_std) # 标准化
+		final_reward = torch.div(final_reward - reward_mean, reward_std)
 
 		loss = torch.mul(loss, final_reward)  # [original batch_size * num_rollout, T]
 
-		entropy_loss = decaying_beta * self.entropy_reg_loss(all_logits) # 据说beta是用来增强探索的
+		entropy_loss = decaying_beta * self.entropy_reg_loss(all_logits)
 
 		total_loss = torch.mean(loss) - entropy_loss  # scalar
 
@@ -142,7 +142,7 @@ class Trainer(object):
 		reward_std = torch.std(final_reward) + 1e-6
 		final_reward = torch.div(final_reward - reward_mean, reward_std)
 
-		loss = torch.mul(loss, final_reward)  # [original batch_size * num_rollout, T]
+		loss = torch.mul(loss, final_reward)
 
 		e_entropy_loss = decaying_beta * self.entropy_reg_loss(e_all_logits)
 
