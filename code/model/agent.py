@@ -157,8 +157,8 @@ class Agent(nn.Module):
         else:
             self.m = 2
 
-        self.policy_step_entity = Policy_step_entity(m=self.m, embedding_size=self.embedding_size, hidden_size=self.hidden_size).to(self.device) # 到时候会往里面加图注意力的
-        self.policy_step = Policy_step(m=self.m, embedding_size=self.embedding_size,hidden_size=self.hidden_size).to(self.device)  # 到时候会往里面加图注意力的
+        self.policy_step_entity = Policy_step_entity(m=self.m, embedding_size=self.embedding_size, hidden_size=self.hidden_size).to(self.device)
+        self.policy_step = Policy_step(m=self.m, embedding_size=self.embedding_size,hidden_size=self.hidden_size).to(self.device)
         self.GAT = GraphAttentionLayer(m=self.m, embedding_size=self.entity_embedding_size, params=params).to(self.device)
         self.policy_mlp = Policy_mlp(self.hidden_size, self.m, self.embedding_size).to(self.device)
         self.gate1_linear = nn.Linear(2*self.hidden_size, 3*2*self.hidden_size)
@@ -247,7 +247,6 @@ class Agent(nn.Module):
         scores = torch.where(mask, dummy_scores, prelim_scores)  # [original batch_size * num_rollout, max_num_actions]
 
         # 4 sample action
-        #torch.distributions.categorical.Categorical根据概率分布来产生sample，产生的sample是输入tensor的index
         action = torch.distributions.categorical.Categorical(logits=scores) # [original batch_size * num_rollout, 1]
         label_action = action.sample() # [original batch_size * num_rollout,]
 
