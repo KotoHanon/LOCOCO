@@ -18,9 +18,7 @@ while having excellent local reasoning ability.
 
 
 ### Installation
-To run our code, you must first set up your environment. 
-We recommend using virtualenv with pip to set up a virtual environment 
-and dependency manager. For our experiments, we use `python3.10`; 
+For our experiments, we use `python3.10`; 
 while other versions of python will probably work, they are untested 
 and we cannot guarantee the same performance.
 
@@ -36,9 +34,7 @@ Some of the most important packages
 - tqdm 4.62.3
 - numpy 1.22.4
 
-Now, you should be ready to run experiments!
-
-### Running Experiments
+### Experiments Setup
 
 Here we provide a mapping from task name as used in the paper to 
 task name used in the code.
@@ -55,19 +51,6 @@ task name used in the code.
 - WorksFor: `worksfor.sh`
 
 The hyperparam configs for each experiments are included in the configs directory. 
-To start a particular experiment, just do
-```
-sh run.sh configs/${task}.sh
-```
-
-where the `${task}.sh` is the name of the config file. For example,
-
-```
-sh run.sh configs/athleteplaysforteam.sh
-```
-
-If you want to change the environment, please modify parameters in 
-`./configs/${task}.sh`.
 
 ### Output
 We use [weights and biases](https://wandb.ai) to log our results. If you do not have a 
