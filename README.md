@@ -16,24 +16,6 @@ path feedback enables GIANT to have better learning efficiency, thus providing
 DWARF with high-quality guidance, making the DWARF to have a favourable global vision 
 while having excellent local reasoning ability.
 
-
-### Installation
-For our experiments, we use `python3.10`; 
-while other versions of python will probably work, they are untested 
-and we cannot guarantee the same performance.
-
-To install the various python dependencies (including pytorch).
-
-`pip install -r requirements.txt`
-
-Some of the most important packages
-
-- scipy 1.7.2
-- wandb 0.17.0
-- torch 2.0.1
-- tqdm 4.62.3
-- numpy 1.22.4
-
 ### Experiments Setup
 
 Here we provide a mapping from task name as used in the paper to 
