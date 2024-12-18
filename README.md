@@ -1,5 +1,5 @@
 ### Tips ###
-This code includes our proposed FULORA. However, we need some time to adjust the preprocessing files to show the ablation experiments in our appendix. It will be continuously updated. 
+This code includes our proposed FULORA. However, we need some time to organize our codes. It will be continuously updated. 
 
 ## Walk Wisely on Graph: Knowledge Graph Reasoning  with Dual Agents via Efficient Guidance-Exploration
 
