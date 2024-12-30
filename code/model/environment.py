@@ -35,7 +35,6 @@ def calc_cluster_embedding(pretrained_entity_embeddings,entity_id_to_cluster_map
 
     return mapping_dict
 
-
 class Efficient_Guidance_Exploration:
     def __init__(self, size, delta, epsilon):
         self.delta = [delta] * size
@@ -44,11 +43,10 @@ class Efficient_Guidance_Exploration:
         self.alpha = 1e-3
         self.size = size
 
-    def update_lam(self,cluster_reward,embedding_cosine):
-        bound = [0] * self.size
+    def update_lam(self, cluster_reward, embedding_cosine):
         for i in range(self.size):
-            bound[i] = self.delta[i] / (cluster_reward[i] + self.epsilon)
-            if embedding_cosine[i] > bound[i]:
+            bound = self.delta[i] / (cluster_reward[i] + self.epsilon)
+            if embedding_cosine[i] > bound:
                 self.lam[i] -= self.alpha / (1 - self.lam[i])
             else:
                 self.lam[i] += self.alpha / self.lam[i]
