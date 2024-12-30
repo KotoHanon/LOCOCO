@@ -49,9 +49,9 @@ class Efficient_Guidance_Exploration:
         for i in range(self.size):
             bound[i] = self.delta[i] / (cluster_reward[i] + self.epsilon)
             if embedding_cosine[i] > bound[i]:
-                self.lam[i] += self.alpha / (1 - self.lam[i])
+                self.lam[i] -= self.alpha / (1 - self.lam[i])
             else:
-                self.lam[i] -= self.alpha / self.lam[i]
+                self.lam[i] += self.alpha / self.lam[i]
 
     def get_lam(self):
         return self.lam
