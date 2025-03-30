@@ -19,7 +19,6 @@ class GraphAttentionLayer(nn.Module):
 
     def forward(self,prev_state,candidate_action_embeddings):
         prev_state = self.leaky_relu(torch.mm(prev_state,self.l1))
-        test = self.l1.unsqueeze(dim=-1)
         E = torch.zeros(candidate_action_embeddings.shape[0],1,candidate_action_embeddings.shape[2])
 
         for index in range(candidate_action_embeddings.shape[2]): # number of rollouts
